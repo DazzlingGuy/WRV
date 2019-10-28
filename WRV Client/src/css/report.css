@@ -1,0 +1,12 @@
+/* 表格公共样式 */
+.table-custom {
+    empty-cells: show;
+    border-collapse: separate;
+    border-spacing: 0;
+	position: relative;
+	word-break: break-word;
+    word-wrap: break-word;
+    table-layout: fixed;
+	width:100%;
+    padding-bottom: 50px;
+}

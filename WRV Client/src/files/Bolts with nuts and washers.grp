@@ -1,0 +1,1755 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report EngineVersion="4.0.1" Version="1.0.0">
+    <Parameters>
+        <Parameter Name="pageType" DefaultValue="" Prompt="" DataLength="0" DesignDataType="1" Value="2" DataType="2"/>
+        <Parameter Name="pageName" DefaultValue="" Prompt="" DataLength="0" DesignDataType="1" Value="1/2" DataType="4"/>
+        <Parameter Name="elementName" DefaultValue="" Prompt="" DataLength="0" DesignDataType="1" Value="Element" DataType="4"/>
+        <Parameter Name="billName" DefaultValue="" Prompt="" DataLength="0" DesignDataType="1" Value="Bill" DataType="4"/>
+        <Parameter Name="projectName" DefaultValue="" Prompt="" DataLength="0" DesignDataType="1" Value="Project-7" DataType="4"/>
+        <Parameter Name="addendumNo" DefaultValue="" Prompt="" DataLength="0" DesignDataType="1" Value="" DataType="4"/>
+        <Parameter Name="billElementID" DefaultValue="" Prompt="" DataLength="0" DesignDataType="1" Value="474" DataType="4"/>
+    </Parameters>
+    <CellFormats>
+        <CellFormat TopLineWidth="0" BottomLineWidth="0"/>
+        <CellFormat FontIsItalic="false" FontSize="10" TopMargin="2" LeftMargin="2" TopLineWidth="2" FontIsStrikeOut="false" RightLineWidth="1" FontName="'Arial'" RightMargin="2" HorzAlignment="3" BottomLineWidth="1" BottomMargin="2" FontIsBold="true" VertAlignment="3" FontIsUnderLine="false" LeftLineWidth="2" FontColor="4278190080"/>
+        <CellFormat FontIsItalic="false" FontSize="10" TopMargin="2" LeftMargin="2" TopLineWidth="2" FontIsStrikeOut="false" RightLineWidth="1" FontName="'Arial'" RightMargin="2" HorzAlignment="3" BottomLineWidth="1" BottomMargin="2" FontIsBold="true" VertAlignment="3" FontIsUnderLine="false" LeftLineWidth="1" FontColor="4278190080"/>
+        <CellFormat FontIsItalic="false" FontSize="10" TopMargin="2" LeftMargin="2" TopLineWidth="2" FontIsStrikeOut="false" RightLineWidth="2" FontName="'Arial'" RightMargin="2" HorzAlignment="3" BottomLineWidth="1" BottomMargin="2" FontIsBold="true" VertAlignment="3" FontIsUnderLine="false" LeftLineWidth="1" FontColor="4278190080"/>
+        <CellFormat FontIsItalic="false" FontSize="10" TopMargin="2" LeftMargin="2" TopLineWidth="0" FontIsStrikeOut="false" RightLineWidth="1" FontName="'Arial'" RightMargin="2" HorzAlignment="3" BottomLineWidth="0" BottomMargin="2" FontIsBold="true" VertAlignment="1" FontIsUnderLine="true" LeftLineWidth="2" FontColor="4278190080"/>
+        <CellFormat FontIsItalic="false" FontSize="10" TopMargin="2" LeftMargin="2" TopLineWidth="0" FontIsStrikeOut="false" RightLineWidth="0" FontName="'Arial'" RightMargin="2" HorzAlignment="1" BottomLineWidth="0" BottomMargin="2" FontIsBold="false" VertAlignment="1" FontIsUnderLine="false" LeftLineWidth="1" FontColor="4278190080"/>
+        <CellFormat FontIsItalic="false" FontSize="10" TopMargin="2" LeftMargin="2" TopLineWidth="0" FontIsStrikeOut="false" RightLineWidth="0" FontName="'Arial'" RightMargin="2" HorzAlignment="1" BottomLineWidth="0" BottomMargin="2" FontIsBold="true" VertAlignment="1" FontIsUnderLine="true" LeftLineWidth="0" FontColor="4278190080"/>
+        <CellFormat FontIsItalic="false" FontSize="10" TopMargin="2" LeftMargin="2" TopLineWidth="0" FontIsStrikeOut="false" RightLineWidth="1" FontName="'Arial'" RightMargin="2" HorzAlignment="1" BottomLineWidth="0" BottomMargin="2" FontIsBold="false" VertAlignment="1" FontIsUnderLine="false" LeftLineWidth="0" FontColor="4278190080"/>
+        <CellFormat FontIsItalic="false" FontSize="10" TopMargin="2" LeftMargin="2" TopLineWidth="0" FontIsStrikeOut="false" RightLineWidth="1" FontName="'Arial'" RightMargin="2" HorzAlignment="3" BottomLineWidth="0" BottomMargin="2" FontIsBold="false" VertAlignment="2" FontIsUnderLine="false" LeftLineWidth="1" FontColor="4278190080"/>
+        <CellFormat FontIsItalic="false" FontSize="10" TopMargin="2" LeftMargin="2" TopLineWidth="0" FontIsStrikeOut="false" RightLineWidth="1" FontName="'Arial'" RightMargin="2" HorzAlignment="2" BottomLineWidth="0" BottomMargin="2" FontIsBold="false" VertAlignment="2" FontIsUnderLine="false" LeftLineWidth="1" FontColor="4278190080"/>
+        <CellFormat FontIsItalic="false" FontSize="10" TopMargin="2" LeftMargin="2" TopLineWidth="0" FontIsStrikeOut="false" RightLineWidth="2" FontName="'Arial'" RightMargin="2" HorzAlignment="2" BottomLineWidth="0" BottomMargin="2" FontIsBold="false" VertAlignment="2" FontIsUnderLine="false" LeftLineWidth="1" FontColor="4278190080"/>
+        <CellFormat FontIsItalic="false" FontSize="10" TopMargin="2" LeftMargin="2" TopLineWidth="0" FontIsStrikeOut="false" RightLineWidth="1" FontName="'Arial'" RightMargin="2" HorzAlignment="3" BottomLineWidth="0" BottomMargin="2" FontIsBold="false" VertAlignment="1" FontIsUnderLine="false" LeftLineWidth="2" FontColor="4278190080"/>
+        <CellFormat FontIsItalic="false" FontSize="10" TopMargin="2" LeftMargin="2" TopLineWidth="0" FontIsStrikeOut="false" RightLineWidth="0" FontName="'Arial'" RightMargin="2" HorzAlignment="1" BottomLineWidth="0" BottomMargin="2" FontIsBold="false" VertAlignment="1" FontIsUnderLine="false" LeftLineWidth="0" FontColor="4278190080"/>
+        <CellFormat RightMargin="2" FormatString="'###,##0'" FontColor="4278190080" TopLineWidth="0" TopMargin="2" LeftLineWidth="1" RightLineWidth="1" FontSize="10" VertAlignment="2" FontIsItalic="false" BottomMargin="2" FontName="'Arial'" HorzAlignment="3" FontIsBold="false" FontIsStrikeOut="false" LeftMargin="2" FontIsUnderLine="false" BottomLineWidth="0"/>
+        <CellFormat FontIsItalic="false" FontSize="10" TopMargin="2" LeftMargin="2" TopLineWidth="1" FontIsStrikeOut="false" RightLineWidth="1" FontName="'Arial'" RightMargin="2" HorzAlignment="2" BottomLineWidth="2" BottomMargin="2" FontIsBold="true" VertAlignment="3" FontIsUnderLine="false" LeftLineWidth="2" FontColor="4278190080"/>
+        <CellFormat FontIsItalic="false" FontSize="10" TopMargin="2" LeftMargin="2" TopLineWidth="1" FontIsStrikeOut="false" RightLineWidth="1" FontName="'Arial'" RightMargin="2" HorzAlignment="3" BottomLineWidth="2" BottomMargin="2" FontIsBold="true" VertAlignment="3" FontIsUnderLine="false" LeftLineWidth="1" FontColor="4278190080"/>
+        <CellFormat FontIsItalic="false" FontSize="10" TopMargin="2" LeftMargin="2" TopLineWidth="1" FontIsStrikeOut="false" RightLineWidth="2" FontName="'Arial'" RightMargin="2" HorzAlignment="2" BottomLineWidth="2" BottomMargin="2" FontIsBold="true" VertAlignment="3" FontIsUnderLine="false" LeftLineWidth="1" FontColor="4278190080"/>
+        <CellFormat TopLineWidth="0" RightLineWidth="0" BottomLineWidth="0" LeftLineWidth="0"/>
+        <CellFormat FontIsItalic="false" FontSize="10" TopMargin="2" LeftMargin="2" TopLineWidth="0" FontIsStrikeOut="false" RightLineWidth="0" FontName="'Arial'" RightMargin="2" HorzAlignment="1" BottomLineWidth="0" BottomMargin="2" FontIsBold="false" VertAlignment="3" FontIsUnderLine="false" LeftLineWidth="0" FontColor="4278190080"/>
+        <CellFormat FontIsItalic="false" FontSize="10" TopMargin="2" LeftMargin="2" TopLineWidth="0" FontIsStrikeOut="false" RightLineWidth="0" FontName="'Arial'" RightMargin="2" HorzAlignment="3" BottomLineWidth="0" BottomMargin="2" FontIsBold="false" VertAlignment="3" FontIsUnderLine="false" LeftLineWidth="0" FontColor="4278190080"/>
+        <CellFormat FontIsItalic="false" FontSize="10" TopMargin="2" LeftMargin="2" TopLineWidth="0" FontIsStrikeOut="false" RightLineWidth="0" FontName="'Arial'" RightMargin="2" HorzAlignment="2" BottomLineWidth="0" BottomMargin="2" FontIsBold="false" VertAlignment="3" FontIsUnderLine="false" LeftLineWidth="0" FontColor="4278190080"/>
+    </CellFormats>
+    <Pages>
+        <PageHeader DisplayType="1">
+            <SamePage>
+                <Grid ReportItemType="Grid" RowCount="2" ColCount="4">
+                    <Rows>
+                        <Row/>
+                        <Row Height="56" ID="1"/>
+                    </Rows>
+                    <Cols>
+                        <Col/>
+                        <Col Width="228" ID="1"/>
+                        <Col Width="228" ID="2"/>
+                        <Col Width="228" ID="3"/>
+                    </Cols>
+                    <Cells>
+                        <Cell CellFormat="1" DataType="1" Col="1">
+                            <ExtProps/>
+                        </Cell>
+                        <Cell CellFormat="1" DataType="1" Col="2">
+                            <ExtProps/>
+                        </Cell>
+                        <Cell CellFormat="1" DataType="1" Col="3">
+                            <ExtProps/>
+                        </Cell>
+                        <Cell Row="1" CellFormat="1" DataType="1">
+                            <ExtProps/>
+                        </Cell>
+                        <Cell Row="1" Value="'Project-7'" CellFormat="19" DataType="1" Col="1">
+                            <ExtProps/>
+                        </Cell>
+                        <Cell Row="1" CellFormat="20" DataType="1" Col="2">
+                            <ExtProps/>
+                        </Cell>
+                        <Cell Row="1" Value="'Bill&#xa;Element'" CellFormat="21" DataType="1" Col="3">
+                            <ExtProps/>
+                        </Cell>
+                    </Cells>
+                </Grid>
+            </SamePage>
+        </PageHeader>
+        <PageFooter DisplayType="1">
+            <SamePage>
+                <Grid ReportItemType="Grid" RowCount="2" ColCount="4">
+                    <Rows>
+                        <Row/>
+                        <Row Height="45" ID="1"/>
+                    </Rows>
+                    <Cols>
+                        <Col/>
+                        <Col Width="228" ID="1"/>
+                        <Col Width="228" ID="2"/>
+                        <Col Width="228" ID="3"/>
+                    </Cols>
+                    <Cells>
+                        <Cell CellFormat="1" DataType="1" Col="1">
+                            <ExtProps/>
+                        </Cell>
+                        <Cell CellFormat="1" DataType="1" Col="2">
+                            <ExtProps/>
+                        </Cell>
+                        <Cell CellFormat="1" DataType="1" Col="3">
+                            <ExtProps/>
+                        </Cell>
+                        <Cell Row="1" CellFormat="1" DataType="1">
+                            <ExtProps/>
+                        </Cell>
+                        <Cell Row="1" CellFormat="19" DataType="1" Col="1">
+                            <ExtProps/>
+                        </Cell>
+                        <Cell Row="1" Value="'1/2 '" CellFormat="20" DataType="1" Col="2">
+                            <ExtProps/>
+                        </Cell>
+                        <Cell Row="1" CellFormat="21" DataType="1" Col="3">
+                            <ExtProps/>
+                        </Cell>
+                    </Cells>
+                </Grid>
+            </SamePage>
+        </PageFooter>
+    </Pages>
+    <Detail>
+        <Grid ReportItemType="Grid" RowCount="35" ColCount="15">
+            <Rows>
+                <Row/>
+                <Row Height="22" ID="1"/>
+                <Row Height="21" ID="2"/>
+                <Row Height="16" ID="3"/>
+                <Row Height="21" ID="4"/>
+                <Row Height="16" ID="5"/>
+                <Row Height="72" ID="6"/>
+                <Row Height="16" ID="7"/>
+                <Row Height="21" ID="8"/>
+                <Row Height="16" ID="9"/>
+                <Row Height="21" ID="10"/>
+                <Row Height="16" ID="11"/>
+                <Row Height="72" ID="12"/>
+                <Row Height="16" ID="13"/>
+                <Row Height="21" ID="14"/>
+                <Row Height="16" ID="15"/>
+                <Row Height="21" ID="16"/>
+                <Row Height="16" ID="17"/>
+                <Row Height="21" ID="18"/>
+                <Row Height="16" ID="19"/>
+                <Row Height="72" ID="20"/>
+                <Row Height="16" ID="21"/>
+                <Row Height="21" ID="22"/>
+                <Row Height="16" ID="23"/>
+                <Row Height="38" ID="24"/>
+                <Row Height="16" ID="25"/>
+                <Row Height="38" ID="26"/>
+                <Row Height="16" ID="27"/>
+                <Row Height="38" ID="28"/>
+                <Row Height="16" ID="29"/>
+                <Row Height="38" ID="30"/>
+                <Row Height="16" ID="31"/>
+                <Row Height="38" ID="32"/>
+                <Row Height="43" ID="33"/>
+                <Row Height="20" ID="34"/>
+            </Rows>
+            <Cols>
+                <Col/>
+                <Col Width="39" ID="1"/>
+                <Col Width="6" ID="2"/>
+                <Col Width="3" ID="3"/>
+                <Col Width="33" ID="4"/>
+                <Col Width="164" ID="5"/>
+                <Col Width="33" ID="6"/>
+                <Col Width="33" ID="7"/>
+                <Col Width="67" ID="8"/>
+                <Col Width="2" ID="9"/>
+                <Col Width="6" ID="10"/>
+                <Col Width="39" ID="11"/>
+                <Col Width="69" ID="12"/>
+                <Col Width="81" ID="13"/>
+                <Col Width="94" ID="14"/>
+            </Cols>
+            <Cells>
+                <Cell DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell CellFormat="1" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell CellFormat="1" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell CellFormat="1" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell CellFormat="1" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell CellFormat="1" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell CellFormat="1" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell CellFormat="1" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell CellFormat="1" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell CellFormat="1" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell CellFormat="1" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell CellFormat="1" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell CellFormat="1" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell CellFormat="1" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell CellFormat="1" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="1" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="1" Value="'Item'" CellFormat="2" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell ColSpan="9" Row="1" Value="'Description'" CellFormat="3" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="1" Value="'Description'" CellFormat="3" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="1" Value="'Description'" CellFormat="3" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="1" Value="'Description'" CellFormat="3" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="1" Value="'Description'" CellFormat="3" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="1" Value="'Description'" CellFormat="3" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="1" Value="'Description'" CellFormat="3" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="1" Value="'Description'" CellFormat="3" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="1" Value="'Description'" CellFormat="3" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="1" Value="'Unit'" CellFormat="3" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="1" Value="'Qty'" CellFormat="3" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="1" Value="'Rate'" CellFormat="3" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="1" Value="'Amount'" CellFormat="4" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="2" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="2" CellFormat="5" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="2" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell ColSpan="7" Row="2" Value="'Element (Cont''d)'" CellFormat="7" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="2" CellFormat="7" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="2" CellFormat="7" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="2" CellFormat="7" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="2" CellFormat="7" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="2" CellFormat="7" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="2" CellFormat="7" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="2" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="2" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="2" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="2" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="2" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="3" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="3" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="3" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="3" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="3" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="3" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="3" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="3" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="3" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="3" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="3" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="3" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="3" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="3" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="3" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="4" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="4" CellFormat="5" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="4" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell ColSpan="7" Row="4" Value="'MILD STEEL; GALVANISED'" CellFormat="7" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="4" CellFormat="7" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="4" CellFormat="7" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="4" CellFormat="7" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="4" CellFormat="7" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="4" CellFormat="7" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="4" CellFormat="7" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="4" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="4" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="4" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="4" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="4" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="5" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="5" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="5" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="5" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="5" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="5" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="5" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="5" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="5" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="5" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="5" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="5" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="5" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="5" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="5" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="6" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="6" CellFormat="5" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="6" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell ColSpan="7" Row="6" Value="'Design, supply and install access panel: welded and screwed connections; hot dip galvanised after fabrication; all as specified and detailed on Drawings'" CellFormat="7" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="6" CellFormat="7" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="6" CellFormat="7" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="6" CellFormat="7" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="6" CellFormat="7" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="6" CellFormat="7" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="6" CellFormat="7" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="6" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="6" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="6" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="6" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="6" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="7" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="7" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="7" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="7" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="7" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="7" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="7" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="7" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="7" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="7" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="7" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="7" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="7" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="7" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="7" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="8" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="8" CellFormat="5" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="8" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell ColSpan="7" Row="8" Value="'Access panel'" CellFormat="7" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="8" CellFormat="7" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="8" CellFormat="7" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="8" CellFormat="7" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="8" CellFormat="7" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="8" CellFormat="7" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="8" CellFormat="7" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="8" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="8" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="8" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="8" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="8" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="9" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="9" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="9" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="9" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="9" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="9" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="9" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="9" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="9" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="9" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="9" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="9" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="9" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="9" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="9" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="10" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="10" Value="'A'" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="10" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell ColSpan="7" Row="10" Value="'   1000 x 1000 mm overall; cable riser room'" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="10" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="10" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="10" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="10" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="10" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="10" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="10" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="10" Value="'No.'" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="10" Value="1.0" CellFormat="14" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="10" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="10" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="11" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="11" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="11" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="11" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="11" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="11" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="11" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="11" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="11" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="11" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="11" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="11" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="11" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="11" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="11" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="12" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="12" CellFormat="5" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="12" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell ColSpan="7" Row="12" Value="'Design, supply and install metal gate; open outward only; welded and screwed connections; hot dip galvanised after fabrication; all as specified and detailed on Drawings'" CellFormat="7" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="12" CellFormat="7" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="12" CellFormat="7" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="12" CellFormat="7" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="12" CellFormat="7" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="12" CellFormat="7" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="12" CellFormat="7" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="12" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="12" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="12" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="12" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="12" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="13" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="13" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="13" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="13" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="13" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="13" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="13" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="13" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="13" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="13" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="13" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="13" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="13" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="13" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="13" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="14" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="14" CellFormat="5" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="14" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell ColSpan="7" Row="14" Value="'Gate'" CellFormat="7" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="14" CellFormat="7" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="14" CellFormat="7" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="14" CellFormat="7" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="14" CellFormat="7" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="14" CellFormat="7" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="14" CellFormat="7" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="14" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="14" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="14" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="14" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="14" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="15" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="15" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="15" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="15" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="15" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="15" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="15" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="15" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="15" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="15" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="15" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="15" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="15" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="15" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="15" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="16" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="16" Value="'B'" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="16" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell ColSpan="7" Row="16" Value="'   1200 x 1200 mm overall'" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="16" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="16" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="16" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="16" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="16" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="16" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="16" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="16" Value="'No.'" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="16" Value="1.0" CellFormat="14" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="16" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="16" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="17" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="17" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="17" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="17" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="17" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="17" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="17" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="17" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="17" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="17" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="17" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="17" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="17" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="17" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="17" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="18" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="18" CellFormat="5" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="18" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell ColSpan="7" Row="18" Value="'    MILD STEEL: GALVANISED fCont''d)'" CellFormat="7" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="18" CellFormat="7" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="18" CellFormat="7" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="18" CellFormat="7" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="18" CellFormat="7" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="18" CellFormat="7" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="18" CellFormat="7" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="18" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="18" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="18" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="18" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="18" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="19" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="19" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="19" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="19" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="19" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="19" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="19" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="19" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="19" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="19" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="19" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="19" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="19" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="19" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="19" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="20" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="20" CellFormat="5" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="20" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell ColSpan="7" Row="20" Value="'     Framed louvres and frames with rat guard and      1 hour fire damper; welded and screwed      connections; hot dip galvanised after      fabrication; all as specified and detail on     Drawings'" CellFormat="7" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="20" CellFormat="7" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="20" CellFormat="7" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="20" CellFormat="7" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="20" CellFormat="7" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="20" CellFormat="7" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="20" CellFormat="7" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="20" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="20" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="20" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="20" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="20" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="21" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="21" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="21" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="21" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="21" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="21" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="21" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="21" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="21" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="21" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="21" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="21" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="21" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="21" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="21" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="22" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="22" CellFormat="5" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="22" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell ColSpan="7" Row="22" Value="'    Louvres'" CellFormat="7" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="22" CellFormat="7" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="22" CellFormat="7" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="22" CellFormat="7" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="22" CellFormat="7" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="22" CellFormat="7" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="22" CellFormat="7" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="22" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="22" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="22" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="22" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="22" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="23" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="23" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="23" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="23" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="23" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="23" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="23" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="23" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="23" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="23" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="23" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="23" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="23" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="23" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="23" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="24" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="24" Value="'C'" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="24" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell ColSpan="7" Row="24" Value="'         Fixed  louvres  (ML1);  fixing  to  suit         structural opening size 700 x 700 mm           overall'" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="24" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="24" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="24" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="24" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="24" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="24" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="24" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="24" Value="'No.'" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="24" Value="4.0" CellFormat="14" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="24" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="24" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="25" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="25" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="25" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="25" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="25" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="25" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="25" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="25" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="25" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="25" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="25" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="25" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="25" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="25" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="25" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="26" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="26" Value="'D'" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="26" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell ColSpan="7" Row="26" Value="'         Fixed  louvres  (ML2);  fixing  to  suit         structural opening size 500 x 500 mm           overall'" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="26" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="26" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="26" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="26" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="26" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="26" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="26" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="26" Value="'No.'" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="26" Value="11.0" CellFormat="14" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="26" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="26" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="27" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="27" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="27" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="27" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="27" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="27" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="27" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="27" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="27" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="27" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="27" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="27" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="27" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="27" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="27" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="28" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="28" Value="'E'" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="28" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell ColSpan="7" Row="28" Value="'         Fixed  louvres  (ML3);  fixing  to  suit         structural opening size 900 x 700 mm           overall'" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="28" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="28" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="28" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="28" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="28" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="28" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="28" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="28" Value="'No.'" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="28" Value="7.0" CellFormat="14" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="28" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="28" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="29" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="29" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="29" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="29" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="29" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="29" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="29" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="29" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="29" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="29" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="29" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="29" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="29" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="29" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="29" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="30" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="30" Value="'F'" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="30" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell ColSpan="7" Row="30" Value="'         Fixed  louvres  (ML4);  fixing  to  suit         structural opening size 2100 x 1400 mm           overall'" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="30" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="30" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="30" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="30" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="30" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="30" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="30" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="30" Value="'No.'" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="30" Value="1.0" CellFormat="14" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="30" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="30" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="31" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="31" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="31" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="31" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="31" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="31" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="31" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="31" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="31" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="31" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="31" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="31" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="31" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="31" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="31" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="32" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="32" Value="'G'" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="32" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell ColSpan="7" Row="32" Value="'         Fixed  louvres  (ML5);  fixing  to  suit         structural opening size 6190 x 2072 mm           overall'" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="32" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="32" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="32" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="32" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="32" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="32" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="32" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="32" Value="'No.'" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="32" Value="1.0" CellFormat="14" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="32" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="32" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="33" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="33" CellFormat="12" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="33" CellFormat="6" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="33" CellFormat="13" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="33" CellFormat="13" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="33" CellFormat="13" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="33" CellFormat="13" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="33" CellFormat="13" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="33" CellFormat="13" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="33" CellFormat="13" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="33" CellFormat="8" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="33" CellFormat="9" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="33" CellFormat="9" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="33" CellFormat="10" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="33" CellFormat="11" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="34" CellFormat="1" DataType="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell ColSpan="13" Row="34" Value="'TOTAL CARRIED TO COLLECTION'" CellFormat="15" DataType="1" Col="1">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="34" CellFormat="16" DataType="1" Col="2">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="34" CellFormat="16" DataType="1" Col="3">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="34" CellFormat="16" DataType="1" Col="4">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="34" CellFormat="16" DataType="1" Col="5">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="34" CellFormat="16" DataType="1" Col="6">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="34" CellFormat="16" DataType="1" Col="7">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="34" CellFormat="16" DataType="1" Col="8">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="34" CellFormat="16" DataType="1" Col="9">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="34" CellFormat="16" DataType="1" Col="10">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="34" CellFormat="16" DataType="1" Col="11">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="34" CellFormat="16" DataType="1" Col="12">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="34" CellFormat="16" DataType="1" Col="13">
+                    <ExtProps/>
+                </Cell>
+                <Cell Row="34" CellFormat="17" DataType="1" Col="14">
+                    <ExtProps/>
+                </Cell>
+            </Cells>
+        </Grid>
+    </Detail>
+    <Option ColumnSpace="513474560" BodyLeftLineWidth="2" BodyLineColor="-16777216" AutoFitLastPage="False" CanTreeCollapse="False" FullPaper="False" FullPaperWithOutFormat="False" TextWrapMode="1" AllowRePrint="False" RemainSpaceType="0" VertDivide="True" NumericAutoWrap="False" BodyTopLineWidth="2" BodyBottomLineWidth="2" AllowNullFormat="False" CellAutoFit="False" BodyRightLineWidth="2" MultiColumns="False" HorzDivide="True" PrintBlack="False" ChangeMetaData="True" ZeroAsEmptyText="False" PrintTree="True" CanColRowSizing="False" AutoFitToPage="0" DrawTextOptimize="True" EnableNullCellData="False" AutoCalcMasterRecord="False"/>
+    <PageSetting BindSide="0" PageMarginTop="120" PageMarginBottom="80" PaperWidth="2100" PaperHeight="2968" BindLineSpace="0" PageMarginLeft="200" PaperNum="0" SymPageMargin="False" Orientation="0" PageMarginRight="80"/>
+    <RimSetting>
+        <TGRPRimOption Left="2" Right="2" Bottom="2" Top="2" Caption="OuterRim" RangeRight="2147483647" RangeLeft="1" RangeTop="1" RangeBottom="2147483647"/>
+    </RimSetting>
+</Report>
