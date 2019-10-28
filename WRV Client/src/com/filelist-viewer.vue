@@ -150,8 +150,9 @@ export default {
     },
 
     remove(index) {
-      deleteFile(index);
-      this.refreshFileList();
+      deleteFile(index).then(response => {
+        this.fileList = response;
+      });
     },
 
     submitUpload() {
@@ -166,7 +167,6 @@ export default {
         transform.transform(response);
         var cellFormats = transform.reportCellFormat();
         var pageContent = transform.reportBodyData();
-        console.log(pageContent);
         uploadFile({
           File: { fileName: this.fileObject.name, adjustTime: new Date() },
           CellFormats: cellFormats,
