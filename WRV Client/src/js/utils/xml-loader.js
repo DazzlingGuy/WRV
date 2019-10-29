@@ -13,7 +13,7 @@ var loadXML = function (content) {
             try {
                 xmlDoc = new ActiveXObject(object)
                 xmlDoc.async = false
-                xmlDoc.loadXML(content) //loadXML方法载入xml字符串
+                xmlDoc.loadXML(content)
                 return xmlDoc
             } catch (e) {
                 console.log(`Version ${object} init error.`)

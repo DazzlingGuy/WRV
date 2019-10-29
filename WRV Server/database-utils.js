@@ -2,26 +2,26 @@ var sqlite3 = require('sqlite3');
 var fs = require('fs');
 var path = require('path')
 
-var database = './serverDB/server.db'
+var DATA_BASE_NAME = './serverDB/server.db'
 
-var max_item_id = -1
+var MAX_ITEM_ID = -1
 
-var cell_formats_table = 'CellFormats'
-var row_content_table = 'RowContent'
-var cell_content_table = 'CellContent'
-var grp_files_table = 'GRPFiles'
+var CELL_FORMATS_TABLE = 'CellFormats'
+var ROW_CONTENT_TABLE = 'RowContent'
+var CELL_CONTENT_TABLE = 'CellContent'
+var GRP_FILES_TABLE = 'GRPFiles'
 
-var data_base_table = [grp_files_table, cell_formats_table, row_content_table, cell_content_table]
+var DATA_BASE_TABLE = [GRP_FILES_TABLE, CELL_FORMATS_TABLE, ROW_CONTENT_TABLE, CELL_CONTENT_TABLE]
 
-var db = new sqlite3.Database(path.join(__dirname, database), function (err) {
+var db = new sqlite3.Database(path.join(__dirname, DATA_BASE_NAME), function (err) {
   console.log(err)
-  data_base_table.forEach(element => {
+  DATA_BASE_TABLE.forEach(element => {
     db.all(`SELECT MAX(ItemID) FROM ${element}`, function (err, res) {
       if (!err) {
         res.forEach(element => {
           var id = +element['MAX(ItemID)'];
-          if (id > max_item_id) {
-            max_item_id = id
+          if (id > MAX_ITEM_ID) {
+            MAX_ITEM_ID = id
           }
         });
       }
@@ -31,14 +31,14 @@ var db = new sqlite3.Database(path.join(__dirname, database), function (err) {
 
 
 function getItemID() {
-  max_item_id += 1;
-  return max_item_id;
+  MAX_ITEM_ID += 1;
+  return MAX_ITEM_ID;
 }
 
 
 function insertCellFormatsRecord(data, fileID) {
   data.forEach(CellFormats => {
-    var sql = `INSERT INTO ${cell_formats_table}(ItemID, FileID, FontIsBold, BottomMargin, LeftLineWidth, RightLineWidth, FontName, FontSize, BottomLineWidth,\
+    var sql = `INSERT INTO ${CELL_FORMATS_TABLE}(ItemID, FileID, FontIsBold, BottomMargin, LeftLineWidth, RightLineWidth, FontName, FontSize, BottomLineWidth,\
       TopLineWidth, TopMargin, VertAlignment, FontColor, RightMargin, HorzAlignment, FontIsUnderLine, FontIsItalic, LeftMargin)\
       VALUES(${getItemID()}, ${fileID}, ${CellFormats.FontIsBold}, ${CellFormats.BottomMargin}, ${CellFormats.LeftLineWidth}, ${CellFormats.RightLineWidth}, ${CellFormats.FontName},
       ${CellFormats.FontSize}, ${CellFormats.BottomLineWidth}, ${CellFormats.TopLineWidth}, ${CellFormats.TopMargin}, ${CellFormats.VertAlignment}, ${CellFormats.FontColor},
@@ -56,7 +56,7 @@ function insertGRPFilesRecord(data, callback) {
   var fileName = data.fileName
   var adjustTime = data.adjustTime
 
-  var sql = `INSERT INTO ${grp_files_table}(ItemID, FileName, AdjustTime) VALUES(${itemID}, '${fileName}', '${adjustTime}')`
+  var sql = `INSERT INTO ${GRP_FILES_TABLE}(ItemID, FileName, AdjustTime) VALUES(${itemID}, '${fileName}', '${adjustTime}')`
 
   db.run(sql)
 
@@ -68,7 +68,7 @@ function insertGRPFilesRecord(data, callback) {
 function insertCellContentRecord(data, fileID, RowID) {
   itemID = getItemID().toString()
 
-  var sql = `INSERT INTO ${cell_content_table}(ItemID, FileID, Row, Col, CellFormat, Value, ColSpan, DataType, RowSpan)
+  var sql = `INSERT INTO ${CELL_CONTENT_TABLE}(ItemID, FileID, Row, Col, CellFormat, Value, ColSpan, DataType, RowSpan)
   VALUES(${itemID}, ${fileID}, ${RowID}, ${data.Col}, ${data.CellFormat}, '${data.Value}', ${data.ColSpan}, ${data.DataType}, ${data.RowSpan})`
 
   sql.replace('false', 0)
@@ -80,7 +80,7 @@ function insertCellContentRecord(data, fileID, RowID) {
 function insertPageContentRecord(data, fileID, type) {
   data.forEach(rowData => {
     itemID = getItemID().toString()
-    var sql = `INSERT INTO ${row_content_table}(ItemID, FileID, Row, Type) VALUES(${itemID}, ${fileID}, ${rowData.RowID.toString()}, ${type})`
+    var sql = `INSERT INTO ${ROW_CONTENT_TABLE}(ItemID, FileID, Row, Type) VALUES(${itemID}, ${fileID}, ${rowData.RowID.toString()}, ${type})`
 
     db.run(sql)
 
@@ -93,7 +93,7 @@ function insertPageContentRecord(data, fileID, type) {
 
 var getAllfiles = function (callback) {
   var data = ''
-  db.all(`select * from ${grp_files_table}`, function (err, res) {
+  db.all(`select * from ${GRP_FILES_TABLE}`, function (err, res) {
     var array = new Array()
     if (!err) {
       res.forEach(element => {
@@ -112,11 +112,11 @@ var getAllfiles = function (callback) {
 exports.getAllfiles = getAllfiles
 
 exports.deletefile = function (index, callback) {
-  db.all(`SELECT * FROM ${grp_files_table} WHERE ItemID = ${index}`, function (err, res) {
-    var sql1 = `DELETE FROM ${cell_content_table} WHERE FileID = ${index}`
-    var sql2 = `DELETE FROM ${cell_formats_table} WHERE FileID = ${index}`
-    var sql3 = `DELETE FROM ${row_content_table} WHERE FileID = ${index}`
-    var sql4 = `DELETE FROM ${grp_files_table} WHERE ItemID = ${index}`
+  db.all(`SELECT * FROM ${GRP_FILES_TABLE} WHERE ItemID = ${index}`, function (err, res) {
+    var sql1 = `DELETE FROM ${CELL_CONTENT_TABLE} WHERE FileID = ${index}`
+    var sql2 = `DELETE FROM ${CELL_FORMATS_TABLE} WHERE FileID = ${index}`
+    var sql3 = `DELETE FROM ${ROW_CONTENT_TABLE} WHERE FileID = ${index}`
+    var sql4 = `DELETE FROM ${GRP_FILES_TABLE} WHERE ItemID = ${index}`
 
     db.run(sql1)
     db.run(sql2)
@@ -161,6 +161,8 @@ exports.uploadFiles = function (post, callback) {
   })
 }
 
+
+// todo 文件读取值应该从数据库
 exports.getFileContent = function (id, callback) {
   fs.exists(`./JsonData/${id}.json`, function (exists) {
     if (exists) {

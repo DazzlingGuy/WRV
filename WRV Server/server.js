@@ -4,11 +4,11 @@ const qs = require('querystring');
 
 const database = require('./database-utils');
 
-const defaultHostName = 'http://localhost:8080'
+const DEFAULT_HOST_NAME = 'http://localhost:8080'
 
 // create server
 const server = http.createServer((req, res) => {
-   res.setHeader("Access-Control-Allow-Origin", defaultHostName);
+   res.setHeader("Access-Control-Allow-Origin", DEFAULT_HOST_NAME);
    res.setHeader("Access-Control-Allow-Credentials", "true");
    res.setHeader("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
    res.setHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");

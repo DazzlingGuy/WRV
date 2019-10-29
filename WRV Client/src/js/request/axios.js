@@ -42,7 +42,9 @@ var errorProcess = error => {
 Service.interceptors.request.use(config => {
     loadingInstance = Loading.service({
         lock: true,
-        text: 'Loading...'
+        text: 'Loading...',
+        background: "rgba(0, 0, 0, 0.8)",
+        spinner: "el-icon-loading"
     })
     return config
 }, errorProcess)

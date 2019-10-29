@@ -10,9 +10,9 @@ import ViewUI from 'view-design'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'view-design/dist/styles/iview.css'
 import './lib/mui-master/dist/css/mui.css'
-import './css/report.css'
+import './css/report-viewer.css'
 import './css/app.css'
-import './css/filelist.css'
+import './css/filelist-viewer.css'
 
 // import com
 import {
@@ -29,7 +29,7 @@ import {
     Table
 } from 'view-design'
 
-// use com/lib
+// use com / lib
 Vue.use(ViewUI)
 Vue.use(VueResource)
 Vue.use(VueRouter)

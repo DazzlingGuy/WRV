@@ -9,8 +9,6 @@ import {
     Service
 } from './axios.js'
 
-import qs from 'qs'
-
 export function getFileList() {
     return Service({
         url: 'fileList',

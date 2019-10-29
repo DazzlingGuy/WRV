@@ -1,19 +1,23 @@
-<template lang="">
+<template lang=''>
     <div>
-        <table class="table table-hover table-responsive table-custom table-bordered">
-            <thead class="thead-inverse">
-                <tr class="HeadRow" v-if="header" v-for="header in getPageHeaderList()" :key="header.RowID">
-                    <th :style="getCellFormat(cell.CellFormat)" v-for="cell in header.RowData" :rowspan="cell.RowSpan" :colspan="cell.ColSpan" @dblclick="onFocusIn(cell)">
-                        <input type="text" class="form-control" :value="cell.Value" v-if="cell.CanEdit" @blur="onFocusOut(cell)" @input="onDataChanged" v-focus>
-                        <span v-if="!cell.CanEdit">{{ cell.Value }}</span>
+        <table class='table table-hover table-responsive table-custom table-bordered'>
+            <thead class='thead-inverse'>
+                <tr class='HeadRow' v-if='header' v-for='header in getPageHeaderList()' :key='header.RowID'>
+                    <th :style='getCellFormat(cell.CellFormat)' v-for='cell in header.RowData' :rowspan='cell.RowSpan'
+                        :colspan='cell.ColSpan' @dblclick='onFocusIn(cell)'>
+                        <input type='text' class='form-control' :value='cell.Value' v-if='cell.CanEdit'
+                            @blur='onFocusOut(cell)' @input='onDataChanged' v-focus>
+                        <span v-if='!cell.CanEdit'>{{ cell.Value }}</span>
                     </th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="DataRow" v-if="row" v-for="row in getPageRowList()" :key="row.RowID">
-                    <td :style="getCellFormat(cell.CellFormat)" v-for="cell in row.RowData" :rowspan="cell.RowSpan" :colspan="cell.ColSpan" @dblclick="onFocusIn(cell)">
-                        <input type="text" class="form-control" :value="cell.Value" v-if="cell.CanEdit" @blur="onFocusOut(cell)" @input="onDataChanged" v-focus>
-                        <span v-if="!cell.CanEdit">{{ cell.Value }}</span>
+                <tr class='DataRow' v-if='row' v-for='row in getPageRowList()' :key='row.RowID'>
+                    <td :style='getCellFormat(cell.CellFormat)' v-for='cell in row.RowData' :rowspan='cell.RowSpan'
+                        :colspan='cell.ColSpan' @dblclick='onFocusIn(cell)'>
+                        <input type='text' class='form-control' :value='cell.Value' v-if='cell.CanEdit'
+                            @blur='onFocusOut(cell)' @input='onDataChanged' v-focus>
+                        <span v-if='!cell.CanEdit'>{{ cell.Value }}</span>
                     </td>
                 </tr>
             </tbody>
@@ -23,6 +27,10 @@
 
 <script>
 import { getData } from "../js/request/request.js";
+
+import { Notification } from "element-ui";
+
+var GLOBAL_PAGE_INDEX = -1;
 
 export default {
   data() {
@@ -34,11 +42,26 @@ export default {
     };
   },
   created() {
-    getData(this.$route.query.index).then(response => {
-      this.cellFormats = response.CellFormats;
-      this.pageContent = response.PageContent;
-      this.pageHeader = response.PageHeader;
-    });
+    if (GLOBAL_PAGE_INDEX === -1 && this.$route.query.index != undefined) {
+      GLOBAL_PAGE_INDEX = this.$route.query.index;
+    }
+
+    if (GLOBAL_PAGE_INDEX === -1) {
+      Notification({
+        title: "Special Note.",
+        message: 'Please selete a grp file and click "view" to preview.',
+        showClose: false,
+        position: "bottom-right",
+        offset: 50,
+        iconClass: "info"
+      });
+    } else {
+      getData(GLOBAL_PAGE_INDEX).then(response => {
+        this.cellFormats = response.CellFormats;
+        this.pageContent = response.PageContent;
+        this.pageHeader = response.PageHeader;
+      });
+    }
   },
   methods: {
     onDataChanged(element) {
@@ -149,5 +172,5 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
+<style lang='css' scoped>
 </style>
