@@ -101,7 +101,6 @@ function getCellJsonObject(cellData) {
         return returnValue
     }
 
-    // todo expand column header row span
     var formatRowSpan = (cellData) => {
         if (cellData.hasAttribute(GRPPageBodyConsts.RowSpan)) {
             return cellData.getAttribute(GRPPageBodyConsts.RowSpan)
@@ -110,7 +109,6 @@ function getCellJsonObject(cellData) {
         }
     }
 
-    // todo collection col span
     var formatColSpan = (cellData) => {
         if (cellData.hasAttribute(GRPPageBodyConsts.ColSpan)) {
             return cellData.getAttribute(GRPPageBodyConsts.ColSpan)
