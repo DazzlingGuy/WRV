@@ -139,8 +139,12 @@ exports.uploadFiles = function (post, callback) {
         PageHeader: post.PageHeader,
         PageContent: post.PageContent
       }
-
-      fs.writeFile(`./JsonData/${id}.json`, JSON.stringify(data), function () {})
+      
+      fs.writeFile(path.join(__dirname, `./JsonData/${id}.json`), JSON.stringify(data), err => {
+        if (err) {
+          console.log(err)
+        }
+      })
     })
   } else {
     return
@@ -164,9 +168,10 @@ exports.uploadFiles = function (post, callback) {
 
 // todo 文件读取值应该从数据库
 exports.getFileContent = function (id, callback) {
-  fs.exists(`./JsonData/${id}.json`, function (exists) {
+  filePath = path.join(__dirname, `./JsonData/${id}.json`)
+  fs.exists(filePath, function (exists) {
     if (exists) {
-      var data = fs.readFileSync('./JsonData/' + id.toString() + '.json');
+      var data = fs.readFileSync(filePath);
       callback(data.toString())
     } else {
       console.log('File not exists.')
