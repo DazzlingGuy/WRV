@@ -165,14 +165,17 @@ export default {
 
       this.read(this.fileObject, response => {
         transform.transform(response);
-        var cellFormats = transform.reportCellFormat();
-        var pageContent = transform.reportBodyData();
+        var cellFormats = transform.getFormats();
+        var pageHeader = transform.getHeader();
+        var pageContent = transform.getContent();
         uploadFile({
           File: { fileName: this.fileObject.name, adjustTime: new Date() },
           CellFormats: cellFormats,
+          PageHeader: pageHeader,
           PageContent: pageContent
+        }).then(response => {
+          this.fileList = response;
         });
-        this.refreshFileList();
       });
     },
 

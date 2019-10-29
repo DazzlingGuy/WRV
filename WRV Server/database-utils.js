@@ -2,7 +2,7 @@ var sqlite3 = require('sqlite3');
 var fs = require('fs');
 var path = require('path')
 
-var database = './serverDB/serverTest.db'
+var database = './serverDB/server.db'
 
 var max_item_id = -1
 
@@ -16,10 +16,10 @@ var data_base_table = [grp_files_table, cell_formats_table, row_content_table, c
 var db = new sqlite3.Database(path.join(__dirname, database), function (err) {
   console.log(err)
   data_base_table.forEach(element => {
-    db.all('select max(ItemID) from ' + element, function (err, res) {
+    db.all(`SELECT MAX(ItemID) FROM ${element}`, function (err, res) {
       if (!err) {
         res.forEach(element => {
-          var id = +element['max(ItemID)'];
+          var id = +element['MAX(ItemID)'];
           if (id > max_item_id) {
             max_item_id = id
           }
@@ -38,7 +38,7 @@ function getItemID() {
 
 function insertCellFormatsRecord(data, fileID) {
   data.forEach(CellFormats => {
-    var sql = `insert into ${cell_formats_table}(ItemID, FileID, FontIsBold, BottomMargin, LeftLineWidth, RightLineWidth, FontName, FontSize, BottomLineWidth,\
+    var sql = `INSERT INTO ${cell_formats_table}(ItemID, FileID, FontIsBold, BottomMargin, LeftLineWidth, RightLineWidth, FontName, FontSize, BottomLineWidth,\
       TopLineWidth, TopMargin, VertAlignment, FontColor, RightMargin, HorzAlignment, FontIsUnderLine, FontIsItalic, LeftMargin)\
       VALUES(${getItemID()}, ${fileID}, ${CellFormats.FontIsBold}, ${CellFormats.BottomMargin}, ${CellFormats.LeftLineWidth}, ${CellFormats.RightLineWidth}, ${CellFormats.FontName},
       ${CellFormats.FontSize}, ${CellFormats.BottomLineWidth}, ${CellFormats.TopLineWidth}, ${CellFormats.TopMargin}, ${CellFormats.VertAlignment}, ${CellFormats.FontColor},
@@ -56,7 +56,7 @@ function insertGRPFilesRecord(data, callback) {
   var fileName = data.fileName
   var adjustTime = data.adjustTime
 
-  var sql = `insert into ${grp_files_table}(ItemID,fileName,adjustTime) VALUES (${itemID}, '${fileName}', '${adjustTime}')`
+  var sql = `INSERT INTO ${grp_files_table}(ItemID, FileName, AdjustTime) VALUES(${itemID}, '${fileName}', '${adjustTime}')`
 
   db.run(sql)
 
@@ -68,7 +68,7 @@ function insertGRPFilesRecord(data, callback) {
 function insertCellContentRecord(data, fileID, RowID) {
   itemID = getItemID().toString()
 
-  var sql = `insert into ${cell_content_table}(ItemID, FileID, Row, Col, CellFormat, Value, ColSpan, DataType, RowSpan)
+  var sql = `INSERT INTO ${cell_content_table}(ItemID, FileID, Row, Col, CellFormat, Value, ColSpan, DataType, RowSpan)
   VALUES(${itemID}, ${fileID}, ${RowID}, ${data.Col}, ${data.CellFormat}, '${data.Value}', ${data.ColSpan}, ${data.DataType}, ${data.RowSpan})`
 
   sql.replace('false', 0)
@@ -77,10 +77,10 @@ function insertCellContentRecord(data, fileID, RowID) {
   db.run(sql)
 }
 
-function insertRowContentRecord(data, fileID) {
+function insertPageContentRecord(data, fileID, type) {
   data.forEach(rowData => {
     itemID = getItemID().toString()
-    var sql = `insert into ${row_content_table}(ItemID, FileID, Row) VALUES(${itemID}, ${fileID}, ${rowData.RowID.toString()})`
+    var sql = `INSERT INTO ${row_content_table}(ItemID, FileID, Row, Type) VALUES(${itemID}, ${fileID}, ${rowData.RowID.toString()}, ${type})`
 
     db.run(sql)
 
@@ -112,7 +112,7 @@ var getAllfiles = function (callback) {
 exports.getAllfiles = getAllfiles
 
 exports.deletefile = function (index, callback) {
-  db.all(`select * from ${grp_files_table} where ItemID = ${index}`, function (err, res) {
+  db.all(`SELECT * FROM ${grp_files_table} WHERE ItemID = ${index}`, function (err, res) {
     var sql1 = `DELETE FROM ${cell_content_table} WHERE FileID = ${index}`
     var sql2 = `DELETE FROM ${cell_formats_table} WHERE FileID = ${index}`
     var sql3 = `DELETE FROM ${row_content_table} WHERE FileID = ${index}`
@@ -129,13 +129,14 @@ exports.deletefile = function (index, callback) {
   })
 }
 
-exports.uploadFiles = function (post) {
+exports.uploadFiles = function (post, callback) {
   var fileID = '';
 
   if (post.File) {
     fileID = insertGRPFilesRecord(post.File, function (id) {
       var data = {
         CellFormats: post.CellFormats,
+        PageHeader: post.PageHeader,
         PageContent: post.PageContent
       }
 
@@ -149,9 +150,15 @@ exports.uploadFiles = function (post) {
     if ('CellFormats' === element) {
       insertCellFormatsRecord(post.CellFormats, fileID)
     } else if ('PageContent' === element) {
-      insertRowContentRecord(post.PageContent, fileID)
+      insertPageContentRecord(post.PageContent, fileID, 0)
+    } else if ('PageHeader' === element) {
+      insertPageContentRecord(post.PageHeader, fileID, 1)
     }
   }
+
+  getAllfiles(function (data) {
+    callback(data)
+  })
 }
 
 exports.getFileContent = function (id, callback) {

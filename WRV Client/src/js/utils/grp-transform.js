@@ -7,7 +7,7 @@
 
 // todo 重构
 
-import xmlLoader from './xml-loader';
+import xmlLoader from './xml-loader'
 
 var GRPPageConsts = {
     Report: 'Report',
@@ -60,7 +60,7 @@ var GRPPageBodyConsts = {
     ColCount: 'ColCount'
 }
 
-function getCellFormatData(cellFormat) {
+function getCellFormatJsonObject(cellFormat) {
     return {
         FontIsBold: cellFormat.getAttribute(GRPCellFormatConsts.FontIsBold),
         BottomMargin: cellFormat.getAttribute(GRPCellFormatConsts.BottomMargin),
@@ -81,7 +81,7 @@ function getCellFormatData(cellFormat) {
     }
 }
 
-function getCellDataJsonObject(cellData, isLastRow) {
+function getCellJsonObject(cellData) {
     // 因为GRP文件的描述前后会带''
     var formatValue = str => {
         var returnValue = ''
@@ -111,9 +111,9 @@ function getCellDataJsonObject(cellData, isLastRow) {
     }
 
     // todo collection col span
-    var formatColSpan = (cellData, isLastRow) => {
+    var formatColSpan = (cellData) => {
         if (cellData.hasAttribute(GRPPageBodyConsts.ColSpan)) {
-            return isLastRow ? cellData.getAttribute(GRPPageBodyConsts.ColSpan) - 2 : cellData.getAttribute(GRPPageBodyConsts.ColSpan)
+            return cellData.getAttribute(GRPPageBodyConsts.ColSpan)
         } else {
             return 1
         }
@@ -123,7 +123,9 @@ function getCellDataJsonObject(cellData, isLastRow) {
         Row: cellData.getAttribute(GRPPageBodyConsts.Row),
         Col: cellData.getAttribute(GRPPageBodyConsts.Col),
         RowSpan: formatRowSpan(cellData),
-        ColSpan: formatColSpan(cellData, isLastRow),
+        HasRowSpan: cellData.hasAttribute(GRPPageBodyConsts.RowSpan),
+        ColSpan: formatColSpan(cellData),
+        HasColSpan: cellData.hasAttribute(GRPPageBodyConsts.ColSpan),
         DataType: cellData.getAttribute(GRPPageBodyConsts.DataType),
         CellFormat: cellData.getAttribute(GRPPageBodyConsts.CellFormat),
         Value: formatValue(String(cellData.getAttribute(GRPPageBodyConsts.Value))),
@@ -131,74 +133,17 @@ function getCellDataJsonObject(cellData, isLastRow) {
     }
 }
 
-function GRPTransform() {
-    this.reportContent = null
-}
-
-GRPTransform.prototype.transform = function (content) {
-    this.reportContent = xmlLoader.loadXML(content)
-}
-
-GRPTransform.prototype.getReportContent = function () {
-    return this.reportContent
-}
-
-GRPTransform.prototype.getDetail = function () {
-    return this.reportContent.getElementsByTagName(GRPPageConsts.Detail)[0]
-}
-
-GRPTransform.prototype.getCellFormats = function () {
-    return this.reportContent.getElementsByTagName(GRPPageConsts.CellFormats)[0]
-}
-
-GRPTransform.prototype.getBodyCells = function () {
-    var detail = this.getDetail()
-    return detail.getElementsByTagName(GRPPageBodyConsts.Cells)[0]
-}
-
-GRPTransform.prototype.getBodyColumns = function () {
-    var detail = this.getDetail()
-    return detail.getElementsByTagName(GRPPageBodyConsts.Cols)[0]
-}
-
-GRPTransform.prototype.getBodyRows = function () {
-    var detail = this.getDetail()
-    return detail.getElementsByTagName(GRPPageBodyConsts.Rows)[0]
-}
-
-// GRP文件格式中行列号均定义为ID，感觉很奇怪
-GRPTransform.prototype.getRowCount = function () {
-    return this.getDetail().getElementsByTagName(GRPPageBodyConsts.Grid)[0].getAttribute(GRPPageBodyConsts.RowCount) - 1
-}
-
-GRPTransform.prototype.getColumnCount = function () {
-    return this.getDetail().getElementsByTagName(GRPPageBodyConsts.Grid)[0].getAttribute(GRPPageBodyConsts.ColCount) - 1
-}
-
-GRPTransform.prototype.reportCellFormat = function () {
-    var jsonObject = []
-    var cellFormatList = this.getCellFormats().children
-    for (let index = 0; index < cellFormatList.length; index++) {
-        const element = cellFormatList[index];
-        jsonObject.push(getCellFormatData(element))
-    }
-    return jsonObject
-}
-
-// todo 需要重新梳理GRP文件格式，这个函数太乱了
-GRPTransform.prototype.reportBodyData = function () {
+function transform2Rows(bodyCellsNode) {
     var reportBodyData = []
     var reportRowCells = []
 
     var currentRow = 1
-    var allRowCount = parseInt(this.getRowCount())
 
     var currentRowHasValue = false
-    var needAdd = true
 
-    var bodyCells = this.getBodyCells().children
+    var bodyCells = bodyCellsNode.children
     for (let index = 0; index < bodyCells.length; index++) {
-        const element = bodyCells[index];
+        const element = bodyCells[index]
 
         // 如果没有行参数，证明是不需要的单元格
         // 不知道GRP文件为什么会有这一行
@@ -226,8 +171,7 @@ GRPTransform.prototype.reportBodyData = function () {
 
             // 添加Cell对象，无Col参数的对象是无效对象，直接忽略
             if (element.hasAttribute(GRPPageBodyConsts.Col)) {
-                // isLastRow处理汇总行，需重构
-                reportRowCells.push(getCellDataJsonObject(element, innerCurrentRow == allRowCount))
+                reportRowCells.push(getCellJsonObject(element))
             }
         }
     }
@@ -239,6 +183,196 @@ GRPTransform.prototype.reportBodyData = function () {
     })
 
     return reportBodyData
+}
+
+function hasHeaderFeature(row, allRows) {
+    if (row.RowID === 1) {
+        return true
+    } else {
+        // 非第一条取第一条的Row的ColSpan作参考
+        var firstRow = allRows[0]
+
+        var maxRowSpan = -1
+        for (let index = 0; index < firstRow.RowData.length; index++) {
+            const element = firstRow.RowData[index]
+            maxRowSpan = element.RowSpan > maxRowSpan ? element.RowSpan : maxRowSpan
+        }
+
+        if (row.RowID <= maxRowSpan) {
+            return true
+        }
+
+        return false
+    }
+}
+
+function transform2Header(rows) {
+    var headers = []
+    for (let index = 0; index < rows.length; index++) {
+        const element = rows[index]
+        if (!hasHeaderFeature(element, rows)) {
+            break
+        }
+        headers.push(element)
+    }
+    repairHeader(headers)
+    return headers
+}
+
+function repairHeader(headers) {
+    removeColSpanCell(headers)
+
+    if (headers.length > 1) {
+        removeRowSpanCell(headers)
+    }
+}
+
+function removeRowSpanCell(headers) {
+    var removeObject = (container, object) => {
+        var index = container.findIndex(element => {
+            return element === object
+        })
+
+        container.splice(index, 1)
+    }
+
+    var validCol = []
+
+    // 非第一条取第一条的Row的RowSpan作参考
+    var firstRow = headers[0]
+
+    for (let index = 0; index < firstRow.RowData.length; index++) {
+        const element = firstRow.RowData[index]
+        if (element.ColSpan > 1 && !element.HasRowSpan) {
+            for (let index = 0; index < element.ColSpan; index++) {
+                validCol.push(parseInt(element.Col) + index)
+            }
+        }
+    }
+
+    // 从第二条开始循环
+    for (let index = 1; index < headers.length; index++) {
+        const header = headers[index]
+        for (let index = 0; index < header.RowData.length; index++) {
+            const cell = header.RowData[index]
+            if (validCol.indexOf(parseInt(cell.Col)) == -1) {
+                removeObject(header.RowData, cell)
+                    --index
+            }
+        }
+    }
+}
+
+function removeColSpanCell(rows) {
+    var removeObject = (container, object) => {
+        var index = container.findIndex(element => {
+            return element === object
+        })
+
+        container.splice(index, 1)
+    }
+
+    var colSpan = 1
+    for (let index = 0; index < rows.length; index++) {
+        var row = rows[index]
+        for (let index = 0; index < row.RowData.length; index++) {
+            const cell = row.RowData[index]
+            if (--colSpan != 0) {
+                removeObject(row.RowData, cell)
+                    --index
+            } else {
+                colSpan = cell.ColSpan
+            }
+        }
+    }
+}
+
+function transform2Content(rows) {
+    // todo according to business
+    repiarContent(rows)
+    return rows
+}
+
+function repiarContent(rows) {
+    removeColSpanCell(rows)
+}
+
+function GRPTransform(content) {
+    this.report = null
+    this.header = []
+    this.content = []
+    this.formats = []
+}
+
+GRPTransform.prototype.transform = function (content) {
+    var removeObject = (container, object) => {
+        var index = container.findIndex(element => {
+            return element.RowID === object.RowID
+        })
+
+        container.splice(index, 1)
+    }
+
+    this.report = xmlLoader.loadXML(content)
+
+    var allRows = transform2Rows(this.getBodyCells())
+
+    this.header = transform2Header(allRows)
+    this.header.forEach(element => {
+        removeObject(allRows, element)
+    });
+
+    this.content = transform2Content(allRows)
+
+    for (let index = 0; index < this.getCellFormats().children.length; index++) {
+        const element = this.getCellFormats().children[index]
+        this.formats.push(getCellFormatJsonObject(element))
+    }
+}
+
+GRPTransform.prototype.getReportContent = function () {
+    return this.report
+}
+
+GRPTransform.prototype.getDetail = function () {
+    return this.report.getElementsByTagName(GRPPageConsts.Detail)[0]
+}
+
+GRPTransform.prototype.getCellFormats = function () {
+    return this.report.getElementsByTagName(GRPPageConsts.CellFormats)[0]
+}
+
+GRPTransform.prototype.getBodyCells = function () {
+    return this.getDetail().getElementsByTagName(GRPPageBodyConsts.Cells)[0]
+}
+
+GRPTransform.prototype.getBodyColumns = function () {
+    return this.getDetail().getElementsByTagName(GRPPageBodyConsts.Cols)[0]
+}
+
+GRPTransform.prototype.getBodyRows = function () {
+    return this.getDetail().getElementsByTagName(GRPPageBodyConsts.Rows)[0]
+}
+
+// GRP文件格式中行列号均定义为ID，感觉很奇怪
+GRPTransform.prototype.getRowCount = function () {
+    return this.getDetail().getElementsByTagName(GRPPageBodyConsts.Grid)[0].getAttribute(GRPPageBodyConsts.RowCount) - 1
+}
+
+GRPTransform.prototype.getColumnCount = function () {
+    return this.getDetail().getElementsByTagName(GRPPageBodyConsts.Grid)[0].getAttribute(GRPPageBodyConsts.ColCount) - 1
+}
+
+GRPTransform.prototype.getFormats = function () {
+    return this.formats
+}
+
+GRPTransform.prototype.getHeader = function () {
+    return this.header
+}
+
+GRPTransform.prototype.getContent = function () {
+    return this.content
 }
 
 export default GRPTransform

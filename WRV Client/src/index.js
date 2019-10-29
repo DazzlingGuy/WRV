@@ -4,7 +4,7 @@ import App from './App.vue'
 import router from './route/route.js'
 import VueResource from "vue-resource"
 import VueRouter from 'vue-router'
-import ViewUI from 'view-design';
+import ViewUI from 'view-design'
 
 // import css
 import 'bootstrap/dist/css/bootstrap.css'
@@ -30,7 +30,7 @@ import {
 } from 'view-design'
 
 // use com/lib
-Vue.use(ViewUI);
+Vue.use(ViewUI)
 Vue.use(VueResource)
 Vue.use(VueRouter)
 

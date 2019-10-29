@@ -14,6 +14,7 @@ const server = http.createServer((req, res) => {
    res.setHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 });
 
+// todo
 // listen client request
 server.on('request', (req, res) => {
    let urlObject = url.parse(req.url, true);
@@ -47,9 +48,11 @@ server.on('request', (req, res) => {
       for (let element in post) {
          if (req.url == "/upload") {
             let dataJson = JSON.parse(element)
-            database.uploadFiles(dataJson);
+            database.uploadFiles(dataJson, function (data) {
+               res.end(data)
+            })
          } else if (req.url == "modify") {
-
+            // todo modify function
          }
       }
    });

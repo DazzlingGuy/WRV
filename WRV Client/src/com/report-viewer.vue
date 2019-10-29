@@ -3,8 +3,8 @@
         <table class="table table-hover table-responsive table-custom table-bordered">
             <thead class="thead-inverse">
                 <tr class="HeadRow" v-if="header" v-for="header in getPageHeaderList()" :key="header.RowID">
-                    <th :style="getCellFormat(cell.CellFormat)" v-for="cell in header.RowData" :rowspan="cell.RowSpan" :colspan="cell.ColSpan - 2" @dblclick="onFocusIn(cell)">
-                        <input type="text" class="form-control" :value="cell.Value" v-if="cell.CanEdit" @blur="onFocusOut(cell)" v-focus @input="onDataChanged">
+                    <th :style="getCellFormat(cell.CellFormat)" v-for="cell in header.RowData" :rowspan="cell.RowSpan" :colspan="cell.ColSpan" @dblclick="onFocusIn(cell)">
+                        <input type="text" class="form-control" :value="cell.Value" v-if="cell.CanEdit" @blur="onFocusOut(cell)" @input="onDataChanged" v-focus>
                         <span v-if="!cell.CanEdit">{{ cell.Value }}</span>
                     </th>
                 </tr>
@@ -12,7 +12,7 @@
             <tbody>
                 <tr class="DataRow" v-if="row" v-for="row in getPageRowList()" :key="row.RowID">
                     <td :style="getCellFormat(cell.CellFormat)" v-for="cell in row.RowData" :rowspan="cell.RowSpan" :colspan="cell.ColSpan" @dblclick="onFocusIn(cell)">
-                        <input type="text" class="form-control" :value="cell.Value" v-if="cell.CanEdit" @blur="onFocusOut(cell)" v-focus @input="onDataChanged">
+                        <input type="text" class="form-control" :value="cell.Value" v-if="cell.CanEdit" @blur="onFocusOut(cell)" @input="onDataChanged" v-focus>
                         <span v-if="!cell.CanEdit">{{ cell.Value }}</span>
                     </td>
                 </tr>
@@ -22,9 +22,6 @@
 </template>
 
 <script>
-import GRPTransform from "../js/utils/grp-transform.js";
-var Transform = new GRPTransform();
-
 import { getData } from "../js/request/request.js";
 
 export default {
@@ -32,6 +29,7 @@ export default {
     return {
       cellFormats: [],
       pageContent: [],
+      pageHeader: [],
       inputData: ""
     };
   },
@@ -39,6 +37,7 @@ export default {
     getData(this.$route.query.index).then(response => {
       this.cellFormats = response.CellFormats;
       this.pageContent = response.PageContent;
+      this.pageHeader = response.PageHeader;
     });
   },
   methods: {
@@ -132,27 +131,11 @@ export default {
     },
 
     getPageHeaderList() {
-      // todo: 目前只处理了无扩展列形式的报表
-      var array = [];
-
-      if (this.pageContent) {
-        array.push(this.pageContent[0]);
-      } else {
-        console.log("pageContent is null object.");
-      }
-
-      return array;
+      return this.pageHeader;
     },
 
     getPageRowList() {
-      // todo 目前只处理了无扩展列形式的报表
-      var array = [];
-
-      for (let index = 1; index < this.pageContent.length; index++) {
-        array.push(this.pageContent[index]);
-      }
-
-      return array;
+      return this.pageContent;
     }
   },
 
