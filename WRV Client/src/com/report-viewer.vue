@@ -56,6 +56,7 @@ export default {
         iconClass: "info"
       });
     } else {
+      GLOBAL_PAGE_INDEX = this.$route.query.index;
       getData(GLOBAL_PAGE_INDEX).then(response => {
         this.cellFormats = response.CellFormats;
         this.pageContent = response.PageContent;
