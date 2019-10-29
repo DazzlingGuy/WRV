@@ -53,8 +53,8 @@ function insertCellFormatsRecord(data, fileID) {
 
 function insertGRPFilesRecord(data, callback) {
   var itemID = getItemID().toString();
-  var fileName = data.fileName
-  var adjustTime = data.adjustTime
+  var fileName = data.FileName
+  var adjustTime = data.AdjustTime
 
   var sql = `INSERT INTO ${GRP_FILES_TABLE}(ItemID, FileName, AdjustTime) VALUES(${itemID}, '${fileName}', '${adjustTime}')`
 
