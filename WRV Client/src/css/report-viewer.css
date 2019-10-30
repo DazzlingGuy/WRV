@@ -1,0 +1,17 @@
+.table-custom {
+    width:100%;
+    
+    empty-cells: show;
+
+    position: relative;
+    
+	word-break: break-word;
+    word-wrap: break-word;
+
+    table-layout: fixed;
+
+    padding-bottom: 50px;
+    
+    border-collapse: collapse;
+    border-spacing: 0;
+}
