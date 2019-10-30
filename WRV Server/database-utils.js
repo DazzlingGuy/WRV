@@ -1,5 +1,5 @@
-var sqlite3 = require('sqlite3');
-var fs = require('fs');
+var sqlite3 = require('sqlite3')
+var fs = require('fs')
 var path = require('path')
 
 var DATA_BASE_NAME = './serverDB/server.db'
@@ -14,33 +14,34 @@ var GRP_FILES_TABLE = 'GRPFiles'
 var DATA_BASE_TABLE = [GRP_FILES_TABLE, CELL_FORMATS_TABLE, ROW_CONTENT_TABLE, CELL_CONTENT_TABLE]
 
 var db = new sqlite3.Database(path.join(__dirname, DATA_BASE_NAME), function (err) {
-  console.log(err)
+  if (err === null) {
+    console.log(`Open database success.`)
+  } else {
+    console.log(`Open database error, cuz ${err}`)
+  }
+
   DATA_BASE_TABLE.forEach(element => {
     db.all(`SELECT MAX(ItemID) FROM ${element}`, function (err, res) {
       if (!err) {
         res.forEach(element => {
-          var id = +element['MAX(ItemID)'];
-          if (id > MAX_ITEM_ID) {
-            MAX_ITEM_ID = id
-          }
-        });
+          var id = +element['MAX(ItemID)']
+          MAX_ITEM_ID = id > MAX_ITEM_ID ? id : MAX_ITEM_ID
+        })
       }
-    });
+    })
   })
-});
+})
 
-
-function getItemID() {
-  MAX_ITEM_ID += 1;
-  return MAX_ITEM_ID;
+function generateID() {
+  MAX_ITEM_ID += 1
+  return MAX_ITEM_ID
 }
-
 
 function insertCellFormatsRecord(data, fileID) {
   data.forEach(CellFormats => {
     var sql = `INSERT INTO ${CELL_FORMATS_TABLE}(ItemID, FileID, FontIsBold, BottomMargin, LeftLineWidth, RightLineWidth, FontName, FontSize, BottomLineWidth,\
       TopLineWidth, TopMargin, VertAlignment, FontColor, RightMargin, HorzAlignment, FontIsUnderLine, FontIsItalic, LeftMargin)\
-      VALUES(${getItemID()}, ${fileID}, ${CellFormats.FontIsBold}, ${CellFormats.BottomMargin}, ${CellFormats.LeftLineWidth}, ${CellFormats.RightLineWidth}, ${CellFormats.FontName},
+      VALUES(${generateID()}, ${fileID}, ${CellFormats.FontIsBold}, ${CellFormats.BottomMargin}, ${CellFormats.LeftLineWidth}, ${CellFormats.RightLineWidth}, ${CellFormats.FontName},
       ${CellFormats.FontSize}, ${CellFormats.BottomLineWidth}, ${CellFormats.TopLineWidth}, ${CellFormats.TopMargin}, ${CellFormats.VertAlignment}, ${CellFormats.FontColor},
       ${CellFormats.RightMargin}, ${CellFormats.HorzAlignment}, ${CellFormats.FontIsUnderLine}, ${CellFormats.FontIsItalic}, ${CellFormats.LeftMargin})`
 
@@ -51,25 +52,29 @@ function insertCellFormatsRecord(data, fileID) {
   })
 }
 
-function insertGRPFilesRecord(data, callback) {
-  var itemID = getItemID().toString();
-  var fileName = data.FileName
-  var adjustTime = data.AdjustTime
-
-  var sql = `INSERT INTO ${GRP_FILES_TABLE}(ItemID, FileName, AdjustTime) VALUES(${itemID}, '${fileName}', '${adjustTime}')`
+function insertGRPFilesRecord(post, fileID) {
+  var sql = `INSERT INTO ${GRP_FILES_TABLE}(ItemID, FileName, AdjustTime) VALUES(${fileID}, '${post.File.FileName}', '${post.File.AdjustTime}')`
 
   db.run(sql)
+}
 
-  callback(itemID)
+function saveGRPJsonFile(post, fileID) {
+  var data = {
+    CellFormats: post.CellFormats,
+    PageHeader: post.PageHeader,
+    PageContent: post.PageContent
+  }
 
-  return itemID;
+  fs.writeFile(path.join(__dirname, `./JsonData/${fileID}.json`), JSON.stringify(data), err => {
+    if (err) {
+      console.log(`Save json file error, cuz ${err}`)
+    }
+  })
 }
 
 function insertCellContentRecord(data, fileID, RowID) {
-  itemID = getItemID().toString()
-
   var sql = `INSERT INTO ${CELL_CONTENT_TABLE}(ItemID, FileID, Row, Col, CellFormat, Value, ColSpan, DataType, RowSpan)
-  VALUES(${itemID}, ${fileID}, ${RowID}, ${data.Col}, ${data.CellFormat}, '${data.Value}', ${data.ColSpan}, ${data.DataType}, ${data.RowSpan})`
+  VALUES(${generateID()}, ${fileID}, ${RowID}, ${data.Col}, ${data.CellFormat}, '${data.Value}', ${data.ColSpan}, ${data.DataType}, ${data.RowSpan})`
 
   sql.replace('false', 0)
   sql.replace('true', 1)
@@ -79,16 +84,15 @@ function insertCellContentRecord(data, fileID, RowID) {
 
 function insertPageContentRecord(data, fileID, type) {
   data.forEach(rowData => {
-    itemID = getItemID().toString()
-    var sql = `INSERT INTO ${ROW_CONTENT_TABLE}(ItemID, FileID, Row, Type) VALUES(${itemID}, ${fileID}, ${rowData.RowID.toString()}, ${type})`
+    rowID = generateID()
+    var sql = `INSERT INTO ${ROW_CONTENT_TABLE}(ItemID, FileID, Row, Type) VALUES(${rowID}, ${fileID}, ${rowData.RowID}, ${type})`
 
     db.run(sql)
 
-    var cells = rowData.RowData;
-    cells.forEach(cellData => {
-      insertCellContentRecord(cellData, fileID, itemID)
-    });
-  });
+    rowData.RowData.forEach(cellData => {
+      insertCellContentRecord(cellData, fileID, rowID)
+    })
+  })
 }
 
 var getAllfiles = function (callback) {
@@ -102,11 +106,11 @@ var getAllfiles = function (callback) {
           name: element.FileName,
           time: element.AdjustTime
         })
-      });
-      data = JSON.stringify(array);
+      })
+      data = JSON.stringify(array)
       callback(data)
     }
-  });
+  })
 }
 
 exports.getAllfiles = getAllfiles
@@ -130,22 +134,14 @@ exports.deletefile = function (index, callback) {
 }
 
 exports.uploadFiles = function (post, callback) {
-  var fileID = '';
+  var fileID = generateID()
 
+  // 先保存文件信息
   if (post.File) {
-    fileID = insertGRPFilesRecord(post.File, function (id) {
-      var data = {
-        CellFormats: post.CellFormats,
-        PageHeader: post.PageHeader,
-        PageContent: post.PageContent
-      }
-      
-      fs.writeFile(path.join(__dirname, `./JsonData/${id}.json`), JSON.stringify(data), err => {
-        if (err) {
-          console.log(err)
-        }
-      })
-    })
+    insertGRPFilesRecord(post, fileID)
+
+    // todo 后续这个借口可能不再使用了
+    saveGRPJsonFile(post, fileID)
   } else {
     return
   }
@@ -165,13 +161,12 @@ exports.uploadFiles = function (post, callback) {
   })
 }
 
-
 // todo 文件读取值应该从数据库
 exports.getFileContent = function (id, callback) {
   filePath = path.join(__dirname, `./JsonData/${id}.json`)
   fs.exists(filePath, function (exists) {
     if (exists) {
-      var data = fs.readFileSync(filePath);
+      var data = fs.readFileSync(filePath)
       callback(data.toString())
     } else {
       console.log('File not exists.')
