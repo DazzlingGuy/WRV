@@ -80,6 +80,14 @@ function getCellFormatJsonObject(cellFormat) {
         LeftMargin: cellFormat.getAttribute(GRPCellFormatConsts.LeftMargin)
     }
 }
+    
+var removeObject = (container, object) => {
+    var index = container.findIndex(element => {
+        return element === object
+    })
+
+    container.splice(index, 1)
+}
 
 function getCellJsonObject(cellData) {
     // 因为GRP文件的描述前后会带''
@@ -226,14 +234,6 @@ function repairHeader(headers) {
 }
 
 function removeRowSpanCell(headers) {
-    var removeObject = (container, object) => {
-        var index = container.findIndex(element => {
-            return element === object
-        })
-
-        container.splice(index, 1)
-    }
-
     var validCol = []
 
     // 非第一条取第一条的Row的RowSpan作参考
@@ -262,14 +262,6 @@ function removeRowSpanCell(headers) {
 }
 
 function removeColSpanCell(rows) {
-    var removeObject = (container, object) => {
-        var index = container.findIndex(element => {
-            return element === object
-        })
-
-        container.splice(index, 1)
-    }
-
     var colSpan = 1
     for (let index = 0; index < rows.length; index++) {
         var row = rows[index]
@@ -303,13 +295,10 @@ function GRPTransform(content) {
 }
 
 GRPTransform.prototype.transform = function (content) {
-    var removeObject = (container, object) => {
-        var index = container.findIndex(element => {
-            return element.RowID === object.RowID
-        })
-
-        container.splice(index, 1)
-    }
+    this.report = null
+    this.header = []
+    this.content = []
+    this.formats = []
 
     this.report = xmlLoader.loadXML(content)
 

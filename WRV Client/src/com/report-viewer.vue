@@ -89,35 +89,35 @@ export default {
       var fontHeight = `line-height: 14pt;`;
 
       var fontWeight =
-        cellFormat.FontIsBold == "true"
+        cellFormat.FontIsBold === 1 
           ? "font-weight:bold;"
           : "font-weight:normal;";
 
       var fontStyle =
-        cellFormat.FontIsItalic == "true"
+        cellFormat.FontIsItalic === 1
           ? "font-style:italic;"
           : "font-style:normal;";
 
       var fontUnderLine =
-        cellFormat.FontIsUnderLine === "true"
+        cellFormat.FontIsUnderLine === 1
           ? "text-decoration: underline;"
           : "text-decoration: none;";
 
       var fontTextAlign = (function() {
         switch (cellFormat.HorzAlignment) {
-          case "0":
+          case 0:
             return "text-align: auto;";
             break;
-          case "1":
+          case 1:
             return "text-align: left;";
             break;
-          case "2":
+          case 2:
             return "text-align: right;";
             break;
-          case "3":
+          case 3:
             return "text-align: center;";
             break;
-          case "4":
+          case 4:
             return "text-align: justify;";
             break;
           default:
@@ -127,16 +127,16 @@ export default {
 
       var fontVertAlignment = (function() {
         switch (cellFormat.VertAlignment) {
-          case "1":
+          case 1:
             return "vertical-align: auto;";
             break;
-          case "2":
+          case 2:
             return "vertical-align: bottom;";
             break;
-          case "3":
+          case 3:
             return "vertical-align: top;";
             break;
-          case "4":
+          case 4:
             return "vertical-align: center;";
             break;
           default:

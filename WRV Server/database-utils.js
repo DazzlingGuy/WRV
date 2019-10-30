@@ -310,8 +310,6 @@ async function getRowContentFromDB(id, type) {
     rowContentList.push(rowContentObject)
   }
 
-  console.log(rowContentList);
-
   return rowContentList
 }
 
