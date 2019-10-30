@@ -21,17 +21,15 @@ server.on('request', (req, res) => {
 
    // deal with get
    if (pathname == "/fileList" || pathname == "/") {
-      database.getAllfiles(function (data) {
+      database.getAllFileList().then(data => {
          res.end(data)
       })
    } else if (pathname == "/delete") {
-      let index = urlObject.query.index
-      database.deletefile(index, function (data) {
+      database.deleteFile(urlObject.query.index).then(data => {
          res.end(data)
       })
    } else if (pathname == "/getdata") {
-      let index = urlObject.query.index
-      database.getFileContent(index, function (data) {
+      database.getFileContent(urlObject.query.index).then(data => {
          res.end(data)
       })
    }
@@ -44,10 +42,9 @@ server.on('request', (req, res) => {
 
    req.on('end', function () {
       post = qs.parse(post)
-      for (let element in post) {
+      for (let object in post) {
          if (req.url == "/upload") {
-            let dataJson = JSON.parse(element)
-            database.uploadFiles(dataJson, function (data) {
+            database.uploadFile(JSON.parse(object)).then(data => {
                res.end(data)
             })
          } else if (req.url == "modify") {
